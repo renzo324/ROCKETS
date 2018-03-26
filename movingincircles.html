@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+<style>
+
+#box{
+	background: #000000;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	margin-top: 1000;
+	margin-left: 1000;
+	border-radius: 100%;
+	
+}
+#btn{
+	top: 1000px;
+	background: #00ff00;
+	padding: 10px;
+	width: 100px;
+	text-align: center;
+}
+#stop{
+	background: #ff0000;
+	padding: 10px;
+	width: 100px;
+	text-align: center;
+}
+
+
+</style>
+</head>
+<body>
+<div id="box"></div>
+<br><br>
+<div id="btn"><button onclick="potate()">Animate</button></div>
+<div id="stop">Stop</div>
+<script>
+document.getElementById('btn').addEventListener("click", rotate, );
+document.getElementById('stop').addEventListener("click", stopBox);	
+x = 600  
+y = 300 
+r = 300   
+a = 0   
+
+function rotate(a) {
+ 
+  var px = x + r * Math.cos(a);
+  var py = y + r * Math.sin(a);
+  
+  document.querySelector('#box').style.left = px + "px";
+  document.querySelector('#box').style.top = py + "px";  
+}
+
+ i = setInterval(function() {
+  a = (a + Math.PI / 360) % (Math.PI * 2);
+  rotate(a);
+}, 5);
+
+function stopBox(){
+	console.log('Stop');
+		clearInterval(i);
+	}
+
+
+function potate(){
+	location.reload();
+}
+</script>
+</body>
+</html>
+
